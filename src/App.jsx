@@ -21,6 +21,19 @@ function App() {
     const user = {name,email};
     // console.log(name,email);
     console.log(user);
+    // send information as an object in an url using fetch method 
+    fetch('http://localhost:5000/users',{
+      method: 'POST',
+      headers: {
+        'content-type':'application/json',
+      },
+      // send data in body to make it stringified 
+      body: JSON.stringify(user)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log('inside post response',data)
+    })
   }
   return (
     <>
