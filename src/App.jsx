@@ -11,6 +11,17 @@ function App() {
     .then(res => res.json())
     .then(data => setUsers(data));
   },[]);
+  // function 
+  const handleAddUser = e =>{
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    // we can create an object 
+    const user = {name,email};
+    // console.log(name,email);
+    console.log(user);
+  }
   return (
     <>
       <h1>Users management system</h1>
@@ -20,6 +31,12 @@ function App() {
           users.map(user => <p key={user.id}>User name: {user.name}, email:{user.email}</p>)
         }
       </div>
+      {/* send users data to the backend  */}
+      <form onSubmit={handleAddUser}>
+        <input type="text" name="name" placeholder='Enter name'/><br />
+        <input type="email" name="email" placeholder='Enter email' /><br />
+        <input type="submit" value="Add User" /><br />
+      </form>
     </>
   )
 }
