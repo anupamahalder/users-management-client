@@ -38,6 +38,11 @@ function App() {
     .then(data => {
       // get data as response from server side 
       console.log(data);
+      // update the users state after getting new user
+      const newUsers = [...users, data];
+      setUsers(newUsers);
+      // reset the form field after getting the new user 
+      form.reset();
     })
   }
 
@@ -55,7 +60,7 @@ function App() {
       <div>
         {
           users.map(user => <p key={user.id}>User ID: {user.id}, User name: {user.name},
-          User age: {user.age} </p>)
+          User password: {user.password} </p>)
         }
       </div>
     </>
