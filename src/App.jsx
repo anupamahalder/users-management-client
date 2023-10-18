@@ -23,6 +23,17 @@ function App() {
     //  if both value and property name is same then we can write only once not required key value pair 
     const newUser = {name, email, password};
     console.log(newUser);
+    // send post request to server using fetch and the url from where we are getting data, to that url we will send data and in second parameter we gonna send information as an object
+    fetch('http://localhost:5001/users',{
+      // metion which http method is going to use 
+      method: 'POST',
+      headers: {
+        // which kind/type of data will go into the backend will mention here 
+        'content-Type': 'application/json'
+      },
+      // body cannont take data directly it has to be needed to convert in string
+      body: JSON.stringify(newUser)
+    })
   }
 
   return (
