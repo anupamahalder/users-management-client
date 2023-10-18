@@ -34,6 +34,11 @@ function App() {
       // body cannont take data directly it has to be needed to convert in string
       body: JSON.stringify(newUser)
     })
+    .then(res => res.json())
+    .then(data => {
+      // get data as response from server side 
+      console.log(data);
+    })
   }
 
   return (
