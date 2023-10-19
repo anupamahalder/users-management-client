@@ -34,7 +34,7 @@ const Home = () => {
             className="bg-red-200 rounded-lg w-[500px] py-6 px-10 mx-auto">
                 <input className="p-2 rounded-md" type="text" name="name" placeholder="Enter Your name"/><br /> <br />
                 <input className="p-2 rounded-md" type="email" name="email" placeholder="Enter your email"/><br /><br />
-                <input className="mx-auto bg-green-500 rounded-xl py-2 px-3" type="submit" value="Add User" />
+                <input className="mx-auto cursor-pointer bg-green-500 rounded-xl py-2 px-3" type="submit" value="Add User" />
             </form>
         </div>
     );

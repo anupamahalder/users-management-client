@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const Users = () => { 
     const loadedUsers = useLoaderData();
@@ -26,9 +26,13 @@ const Users = () => {
         <div className="mx-auto py-10 w-full px-20">
             <h2>Total users: {users.length}</h2>
             {
-                users.map(user => <div className="flex gap-3" key={user._id}>
+                users.map(user => <div className="flex gap-3 my-2" key={user._id}>
                     <h1>{user.name}</h1>
                     <h1>{user.email}</h1>
+                    {/* create a dynamic route  */}
+                    <Link to={`/update/${user._id}`}>
+                        <button className="cursor-pointer bg-orange-400 rounded-xl py-1 px-3">Update</button>
+                    </Link>
                     {/* to pass parameter and avoid automatic calling we will take arrow function  */}
                     <button onClick={()=> handleDelete(user._id)} className="bg-gray-200 px-1 rounded-md">X</button>
                 </div>)
